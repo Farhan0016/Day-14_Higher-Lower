@@ -1,5 +1,3 @@
-#TODO import data and logo
-
 from game_data import data
 from art import logo, vs
 import random
@@ -17,11 +15,11 @@ def format_data(account):
     return f"Compare A: {name}, a {description}, from {country}"
 
 
-def check_answer(a1_followers, b2_followers, answer):
+def check_answer(a_followers, b_followers, answer):
     """Checks followers against user's guess
       and returns True if they got it right.
       Or False if they got it wrong."""
-    if a1_followers > b2_followers:
+    if a_followers > b_followers:
         return answer == 'A'
     else:
         return answer == 'B'
@@ -39,7 +37,7 @@ def game():
         while account_a == account_b:
             account_b = get_random_account()
 
-        print(f"question_1 = {account_a['follower_count']}, question_2 = {account_b['follower_count']}")
+        # print(f"Account A = {account_a['follower_count']}, Account B = {account_b['follower_count']}")
         print(f"Compare A: {format_data(account_a)}")
         print(vs)
         print(f"Against B: {format_data(account_b)}")
@@ -59,6 +57,7 @@ def game():
             print(f"Sorry, that's wrong. Final score: {score}")
             game_over = True
 
+# Play game
 game()
 
 '''
